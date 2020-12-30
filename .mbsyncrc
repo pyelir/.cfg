@@ -1,0 +1,29 @@
+# mbsyncrc
+# by: Riley Price
+# last updated: 2020-12-09
+# based on https://wiki.archlinux.org/index.php/Isync
+
+# migadu account 
+
+IMAPAccount riley-aoeu-in
+# address to connect to
+Host imap.migadu.com
+User riley@aoeu.in
+PassCmd "pass Email/migadu-riley-aoeuin"
+# use SSL
+SSLType IMAPS
+
+IMAPStore migadu-remote
+account riley-aoeu-in
+
+MaildirStore migadu-local
+SubFolders verbatim
+Path ~/.mail/migadu/
+Inbox ~/.mail/migadu/Inbox
+
+channel migadu
+Master :migadu-remote:
+Slave :migadu-local:
+Patterns *
+Create Both
+SyncState *
